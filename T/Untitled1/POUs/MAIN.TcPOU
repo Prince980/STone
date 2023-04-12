@@ -3,37 +3,74 @@
   <POU Name="MAIN" Id="{1ab52c02-b4a6-415a-b3dd-b1834a2ea228}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
-	 Delay : TON;
-   Count : INT := 0;
+	 Delay1 : TON;
+	 Delay2 : TON;
+	 Delay3 : TON;
+	 Delay4 : TON;
+  
 	XValueInt : INT;
 	YValueInt :INT;
 	
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[Delay(IN:=TRUE, PT:=T#10S);
-IF(Delay.Q) THEN
-   XValueInt := XValueInt + 1;
-   
-   
-   
-END_IF;
+      <ST><![CDATA[Delay1(IN:=TRUE, PT:=T#5S);
 
-Delay(IN:=TRUE);
+IF(Delay1.Q) THEN
+   XValueInt := 3;
+   YvalueInt := -2;
    
-IF (Delay.Q) THEN
-	   YValueInt := YValueInt + 3;
-END_IF;]]></ST>
+         Delay2(IN:=TRUE, PT:=T#5S);
+         IF (Delay2.Q) THEN
+			 
+				XValueInt := -2;
+	            YValueInt := 4;
+	   
+	                  Delay3(IN:=TRUE, PT:=T#5S);
+					  
+						IF (Delay3.Q) THEN
+							XValueInt := 1;
+	 					  YValueInt := 6;
+						 			
+										 Delay4(IN:=TRUE, PT:=T#5S);
+					  
+										IF (Delay4.Q) THEN
+											XValueInt := -5;
+	 									    YValueInt := -1;
+											Delay1(IN:=FALSE, PT:=T#5S);
+										END_IF
+						END_IF
+			END_IF
+END_IF
+
+]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
       <LineId Id="58" Count="0" />
+      <LineId Id="129" Count="0" />
       <LineId Id="64" Count="1" />
       <LineId Id="102" Count="0" />
+      <LineId Id="132" Count="0" />
+      <LineId Id="111" Count="0" />
+      <LineId Id="113" Count="0" />
+      <LineId Id="130" Count="1" />
+      <LineId Id="114" Count="0" />
+      <LineId Id="121" Count="0" />
+      <LineId Id="123" Count="0" />
+      <LineId Id="127" Count="0" />
+      <LineId Id="125" Count="0" />
+      <LineId Id="133" Count="0" />
+      <LineId Id="126" Count="0" />
+      <LineId Id="135" Count="0" />
+      <LineId Id="139" Count="0" />
+      <LineId Id="136" Count="2" />
+      <LineId Id="134" Count="0" />
+      <LineId Id="141" Count="0" />
+      <LineId Id="140" Count="0" />
+      <LineId Id="122" Count="0" />
       <LineId Id="101" Count="0" />
-      <LineId Id="98" Count="0" />
       <LineId Id="66" Count="0" />
       <LineId Id="107" Count="0" />
-      <LineId Id="103" Count="3" />
       <LineId Id="93" Count="0" />
     </LineIds>
   </POU>
