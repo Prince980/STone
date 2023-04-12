@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="MAIN" Id="{1ab52c02-b4a6-415a-b3dd-b1834a2ea228}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	 Delay : TON;
+   Count : INT := 0;
+	XValueInt : INT;
+	YValueInt :INT;
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Delay(IN:=TRUE, PT:=T#10S);
+IF(Delay.Q) THEN
+   XValueInt := XValueInt + 1;
+   
+   
+   
+END_IF;
+
+Delay(IN:=TRUE);
+   
+IF (Delay.Q) THEN
+	   YValueInt := YValueInt + 3;
+END_IF;]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="58" Count="0" />
+      <LineId Id="64" Count="1" />
+      <LineId Id="102" Count="0" />
+      <LineId Id="101" Count="0" />
+      <LineId Id="98" Count="0" />
+      <LineId Id="66" Count="0" />
+      <LineId Id="107" Count="0" />
+      <LineId Id="103" Count="3" />
+      <LineId Id="93" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
